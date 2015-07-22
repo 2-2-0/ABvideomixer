@@ -1,0 +1,729 @@
+#N canvas 205 24 890 883 10;
+#N canvas 1719 424 765 506 OutputBox 0;
+#X obj 8 134 cnv 15 160 60 empty empty 3D_Render_engine 20 12 0 10
+-33289 -262144 0;
+#X obj 59 163 gemwin 12;
+#X obj 176 9 cnv 15 160 220 empty empty visual_params 20 12 0 14 -233017
+-66577 0;
+#X obj 8 9 cnv 15 160 120 empty empty Controls 20 12 0 10 -33289 -262144
+0;
+#X obj 38 30 tgl 15 0 empty empty Render_Window 17 7 0 10 -260097 -262144
+-262144 0 1;
+#X obj 346 114 cnv 15 160 120 empty empty Internal_states 20 12 0 10
+-33289 -262144 0;
+#X msg 381 163 destroy;
+#X text 375 139 Render window;
+#X obj 175 241 cnv 15 320 150 empty empty logic 20 12 0 10 -33289 -260097
+0;
+#X obj 188 284 route create;
+#X msg 188 312 set destroy;
+#X msg 188 340 create \, 1;
+#X msg 268 309 set create;
+#X msg 268 337 destroy;
+#X obj 8 200 cnv 15 160 100 empty empty inputs 20 12 0 10 -33289 -262144
+0;
+#X obj 345 9 cnv 15 160 100 empty empty empty 20 12 0 10 -33289 -66577
+0;
+#X obj 372 30 dac~;
+#X obj 27 226 inlet~;
+#X obj 27 254 inlet;
+#X obj 72 226 inlet~;
+#X obj 38 56 tgl 15 0 empty empty Lighting 17 7 0 10 -260097 -262144
+-262144 0 1;
+#X obj 38 82 tgl 15 0 empty empty DSP_engine 17 7 0 10 -260097 -262144
+-262144 0 1;
+#X text 188 258 render_window;
+#X text 352 258 lighting system;
+#X obj 357 281 route on;
+#X msg 357 309 set off;
+#X msg 418 309 set on;
+#X msg 357 337 lighting 1;
+#X msg 357 365 lighting 0;
+#X msg 383 200 on;
+#X obj 72 254 inlet;
+#X obj 116 256 inlet;
+#X msg 214 96 fullscreen 1;
+#X msg 212 153 fullscreen 0;
+#X obj 273 38 loadbang;
+#X msg 210 66 dimen 160 120;
+#X msg 214 126 dimen 320 240;
+#X msg 213 178 dimen 640 480;
+#X msg 210 38 frame 60;
+#X connect 4 0 6 0;
+#X connect 6 0 9 0;
+#X connect 9 0 10 0;
+#X connect 9 0 11 0;
+#X connect 9 1 12 0;
+#X connect 9 1 13 0;
+#X connect 10 0 6 0;
+#X connect 11 0 1 0;
+#X connect 12 0 6 0;
+#X connect 13 0 1 0;
+#X connect 17 0 16 0;
+#X connect 18 0 4 0;
+#X connect 19 0 16 1;
+#X connect 20 0 29 0;
+#X connect 24 0 25 0;
+#X connect 24 0 27 0;
+#X connect 24 1 26 0;
+#X connect 24 1 28 0;
+#X connect 25 0 29 0;
+#X connect 26 0 29 0;
+#X connect 27 0 1 0;
+#X connect 28 0 1 0;
+#X connect 29 0 24 0;
+#X connect 30 0 20 0;
+#X connect 31 0 1 0;
+#X connect 32 0 1 0;
+#X connect 33 0 1 0;
+#X connect 34 0 37 0;
+#X connect 35 0 1 0;
+#X connect 36 0 1 0;
+#X connect 37 0 1 0;
+#X connect 38 0 1 0;
+#X coords 0 0 1 1 85 60 0;
+#X restore 37 154 pd OutputBox;
+#X obj 85 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144 -1
+-1;
+#X obj 101 135 bng 12 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 96 20 open /home/eddie/mediadev/videos/720x480/pink_panther.avi
+;
+#X msg 96 -1 open /home/eddie/mediadev/videos/720x480/combat_reason.avi
+;
+#X msg 99 41 open /home/eddie/mediadev/videos/720x480/alacecho.avi
+;
+#X msg 99 62 open /home/eddie/mediadev/videos/720x480/bugsyou.avi;
+#X msg 485 20 open /home/eddie/mediadev/videos/720x480/pink_panther.avi
+;
+#X msg 485 -1 open /home/eddie/mediadev/videos/720x480/combat_reason.avi
+;
+#X msg 488 41 open /home/eddie/mediadev/videos/720x480/alacecho.avi
+;
+#X msg 488 62 open /home/eddie/mediadev/videos/720x480/bugsyou.avi
+;
+#X text 250 84 convert source img size;
+#X obj 183 220 cnv 15 250 230 empty empty video_fx1-A 20 12 0 14 -233017
+-66577 0;
+#X obj 317 464 cnv 15 100 60 empty empty A-B_fader 20 12 0 14 -233017
+-66577 0;
+#X obj 145 103 cnv 15 600 100 empty empty video_inputs 20 12 0 14 -233017
+-66577 0;
+#X obj 9 463 cnv 15 300 400 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 146 954 cnv 15 500 100 empty empty patch_bay 20 12 0 14 -233017
+-66577 0;
+#X obj 347 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 368 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 886 160 340 700 pro 0;
+#X obj 90 101 openpanel;
+#X msg 90 119 open \$1;
+#X obj 104 250 pix_film;
+#X floatatom 171 262 5 0 0 0 - - -;
+#X msg 158 101 auto \$1;
+#X text 25 -77 by deadman;
+#X text 20 -53 inlet1 open panel bang plug;
+#X text 20 -38 inlet2 play/stop toggle plug;
+#X msg 171 244 0;
+#X obj 104 286 outlet;
+#X text 20 7 outlet1 gemlist;
+#X text 20 -23 inlet3 pix_film direct order;
+#X text 19 -92 pro video-looper;
+#X obj 26 48 inlet;
+#X obj 83 48 inlet;
+#X obj 145 48 inlet;
+#X obj 182 305 unpack 0 0 0;
+#X floatatom 182 347 10 0 0 0 - - -;
+#X obj 217 48 inlet;
+#X text 20 -8 inlet4 utility;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 16 0;
+#X connect 2 2 8 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 0;
+#X connect 8 0 3 0;
+#X connect 13 0 2 0;
+#X connect 14 0 0 0;
+#X connect 15 0 4 0;
+#X connect 16 0 17 0;
+#X connect 18 0 2 0;
+#X restore 287 151 pd pro video-looper;
+#X obj 294 126 gemhead;
+#X obj 165 125 gemhead;
+#X obj 218 126 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X obj 239 126 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 1
+1;
+#N canvas 886 160 340 700 pro 0;
+#X obj 90 101 openpanel;
+#X msg 90 119 open \$1;
+#X obj 104 250 pix_film;
+#X floatatom 171 262 5 0 0 0 - - -;
+#X msg 158 101 auto \$1;
+#X text 25 -77 by deadman;
+#X text 20 -53 inlet1 open panel bang plug;
+#X text 20 -38 inlet2 play/stop toggle plug;
+#X msg 171 244 0;
+#X obj 104 286 outlet;
+#X text 20 7 outlet1 gemlist;
+#X text 20 -23 inlet3 pix_film direct order;
+#X text 19 -92 pro video-looper;
+#X obj 26 48 inlet;
+#X obj 83 48 inlet;
+#X obj 145 48 inlet;
+#X obj 182 305 unpack 0 0 0;
+#X floatatom 182 347 10 0 0 0 - - -;
+#X obj 217 48 inlet;
+#X text 20 -8 inlet4 utility;
+#X connect 0 0 1 0;
+#X connect 1 0 2 0;
+#X connect 2 0 9 0;
+#X connect 2 1 16 0;
+#X connect 2 2 8 0;
+#X connect 3 0 2 1;
+#X connect 4 0 2 0;
+#X connect 8 0 3 0;
+#X connect 13 0 2 0;
+#X connect 14 0 0 0;
+#X connect 15 0 4 0;
+#X connect 16 0 17 0;
+#X connect 18 0 2 0;
+#X restore 158 151 pd pro video-looper;
+#X obj 287 262 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -258113
+-262144 -1 12700 1;
+#X obj 287 281 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4034
+-1 -1 12700 1;
+#X obj 287 300 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4160
+-262144 -1 12700 1;
+#X obj 287 357 hsl 128 15 0 1 0 0 empty empty empty -10 5 0 10 -258113
+-262144 -1 0 1;
+#X obj 287 376 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4034
+-1 -1 0 1;
+#X obj 287 395 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4160
+-262144 -1 0 1;
+#X obj 287 319 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -191407
+-1 -1 12700 1;
+#X obj 284 414 tgl 15 0 empty empty invert 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 284 243 color set;
+#X obj 287 172 send videoB;
+#N canvas 500 320 683 599 vfx_strip 0;
+#X obj 563 66 pix_invert;
+#X obj 79 11 alpha;
+#X obj 319 79 pix_threshold;
+#X obj 415 35 pack 0 0 0;
+#X obj 79 -33 inlet;
+#X obj 214 229 outlet;
+#X obj 129 -34 cnv 15 200 60 empty empty color_set 20 12 0 14 -233017
+-66577 0;
+#X obj 149 -2 inlet;
+#X obj 193 -3 inlet;
+#X obj 235 -3 inlet;
+#X obj 278 -3 inlet;
+#X obj 177 74 colorRGB;
+#X obj 336 -33 cnv 15 200 60 empty empty color_threshold 20 12 0 14
+-233017 -66577 0;
+#X obj 399 -2 inlet;
+#X obj 441 -2 inlet;
+#X obj 484 -2 inlet;
+#X obj 544 -33 cnv 15 100 60 empty empty invert 20 12 0 14 -233017
+-66577 0;
+#X obj 571 -4 inlet;
+#N canvas 0 0 450 300 bridge 0;
+#X obj 130 30 inlet;
+#X obj 130 82 outlet;
+#X connect 0 0 1 0;
+#X restore 336 163 pd bridge;
+#X connect 0 0 18 0;
+#X connect 1 0 2 0;
+#X connect 2 0 11 0;
+#X connect 3 0 2 2;
+#X connect 4 0 1 0;
+#X connect 7 0 11 1;
+#X connect 8 0 11 2;
+#X connect 9 0 11 3;
+#X connect 10 0 11 4;
+#X connect 11 0 0 0;
+#X connect 13 0 3 0;
+#X connect 14 0 3 1;
+#X connect 15 0 3 2;
+#X connect 17 0 0 0;
+#X connect 18 0 5 0;
+#X restore 194 369 pd vfx_strip;
+#X obj 17 259 cnv 15 150 150 empty empty screen_A 20 12 0 14 -233017
+-66577 0;
+#X obj 41 385 rectangle 4 3;
+#X obj 32 336 pix_texture;
+#X obj 33 310 receive masterA;
+#X obj 36 284 tgl 15 0 empty empty send2front? 17 7 0 10 -262144 -1
+-1 0 0.01;
+#X obj 39 360 translateXYZ 0 0 0;
+#X obj 705 258 cnv 15 150 150 empty empty screen_B 20 12 0 14 -233017
+-66577 0;
+#X obj 729 384 rectangle 4 3;
+#X obj 720 335 pix_texture;
+#X obj 724 283 tgl 15 0 empty empty send2front? 17 7 0 10 -262144 -1
+-1 0 0.01;
+#X obj 727 359 translateXYZ 0 0 0;
+#X obj 721 309 receive masterB;
+#X obj 742 223 tgl 15 0 empty empty A-B_front? 17 7 0 10 -262144 -1
+-1 0 1;
+#X obj 337 488 hsl 200 37 0 1 0 0 empty empty empty -2 -8 0 10 -260097
+-262144 -1 0 1;
+#N canvas 893 124 442 463 2s_video_fader 0;
+#X obj 317 284 float;
+#X obj 171 312 pix_alpha;
+#X obj 261 200 - 1;
+#X obj 300 318 pix_alpha;
+#X obj 221 200 float;
+#X obj 187 284 float;
+#X obj 290 200 abs;
+#X obj 185 114 inlet;
+#X obj 336 111 inlet;
+#X obj 127 117 inlet;
+#X obj 166 358 outlet;
+#X obj 311 358 outlet;
+#X text 22 7 two screens video fader by deadman inlet1 - 1st. video
+inlet2 - fader slider (0 to 1) inlet3 - 2nd. video;
+#X floatatom 232 293 5 0 0 0 - - -;
+#X floatatom 281 294 5 0 0 0 - - -;
+#X connect 0 0 3 1;
+#X connect 0 0 3 2;
+#X connect 0 0 3 3;
+#X connect 0 0 3 4;
+#X connect 0 0 14 0;
+#X connect 1 0 10 0;
+#X connect 2 0 6 0;
+#X connect 3 0 11 0;
+#X connect 4 0 2 0;
+#X connect 4 0 0 0;
+#X connect 5 0 1 1;
+#X connect 5 0 1 2;
+#X connect 5 0 1 3;
+#X connect 5 0 1 4;
+#X connect 5 0 13 0;
+#X connect 6 0 5 0;
+#X connect 7 0 1 0;
+#X connect 8 0 3 0;
+#X connect 9 0 4 0;
+#X restore 334 810 pd 2s_video_fader;
+#X obj 286 337 bng 15 250 50 0 empty empty r_on 17 7 0 10 -262144 -1
+-1;
+#X msg 248 335 0;
+#X msg 218 336 1;
+#X obj 440 220 cnv 15 250 230 empty empty video_fx1-B 20 12 0 14 -233017
+-66577 0;
+#X obj 544 262 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -258113
+-262144 -1 12700 1;
+#X obj 544 281 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4034
+-1 -1 12700 1;
+#X obj 544 300 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4160
+-262144 -1 12700 1;
+#X obj 544 357 hsl 128 15 0 1 0 0 empty empty empty -10 5 0 10 -258113
+-262144 -1 0 1;
+#X obj 544 376 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4034
+-1 -1 0 1;
+#X obj 544 395 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -4160
+-262144 -1 0 1;
+#X obj 544 319 hsl 128 15 0 1 0 0 empty empty empty -2 -8 0 10 -191407
+-1 -1 12700 1;
+#X obj 541 414 tgl 15 0 empty empty invert 17 7 0 10 -262144 -1 -1
+0 1;
+#X text 541 243 color set;
+#N canvas 500 320 683 599 vfx_strip 0;
+#X obj 563 66 pix_invert;
+#X obj 79 11 alpha;
+#X obj 319 79 pix_threshold;
+#X obj 415 35 pack 0 0 0;
+#X obj 79 -33 inlet;
+#X obj 214 229 outlet;
+#X obj 129 -34 cnv 15 200 60 empty empty color_set 20 12 0 14 -233017
+-66577 0;
+#X obj 149 -2 inlet;
+#X obj 193 -3 inlet;
+#X obj 235 -3 inlet;
+#X obj 278 -3 inlet;
+#X obj 177 74 colorRGB;
+#X obj 336 -33 cnv 15 200 60 empty empty color_threshold 20 12 0 14
+-233017 -66577 0;
+#X obj 399 -2 inlet;
+#X obj 441 -2 inlet;
+#X obj 484 -2 inlet;
+#X obj 544 -33 cnv 15 100 60 empty empty invert 20 12 0 14 -233017
+-66577 0;
+#X obj 571 -4 inlet;
+#N canvas 0 0 450 300 bridge 0;
+#X obj 130 30 inlet;
+#X obj 130 82 outlet;
+#X connect 0 0 1 0;
+#X restore 336 163 pd bridge;
+#X connect 0 0 18 0;
+#X connect 1 0 2 0;
+#X connect 2 0 11 0;
+#X connect 3 0 2 2;
+#X connect 4 0 1 0;
+#X connect 7 0 11 1;
+#X connect 8 0 11 2;
+#X connect 9 0 11 3;
+#X connect 10 0 11 4;
+#X connect 11 0 0 0;
+#X connect 13 0 3 0;
+#X connect 14 0 3 1;
+#X connect 15 0 3 2;
+#X connect 17 0 0 0;
+#X connect 18 0 5 0;
+#X restore 451 369 pd vfx_strip;
+#X obj 543 337 bng 15 250 50 0 empty empty r_on 17 7 0 10 -262144 -1
+-1;
+#X msg 505 335 0;
+#X msg 475 336 1;
+#X obj 521 466 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X msg 486 465 0.5;
+#X obj 194 242 receive inputFXA;
+#X obj 451 242 receive inputFXB;
+#X obj 158 172 send videoA;
+#X obj 172 964 receive videoA;
+#X obj 283 965 receive videoB;
+#X obj 172 986 send inputFXA;
+#X obj 283 986 send inputFXB;
+#X obj 329 787 receive faderA;
+#X obj 422 787 receive faderB;
+#X obj 194 425 send outputFXA;
+#X obj 451 425 send outputFXB;
+#X obj 403 967 receive outputFXA;
+#X obj 514 968 receive outputFXB;
+#X obj 403 989 send faderA;
+#X obj 514 989 send faderB;
+#X obj 172 1029 send masterA;
+#X obj 282 1029 send masterB;
+#X obj 330 832 send outfaderA;
+#X obj 424 832 send outfaderB;
+#X obj 404 1010 receive outfaderA;
+#X obj 514 1011 receive outfaderB;
+#X obj 404 1033 send fx_A;
+#X obj 514 1033 send fx_B;
+#X obj 17 472 receive fx_A;
+#X text 659 1070 simple videomixer 1 by deadman;
+#X obj 15 838 send outfx_A;
+#X obj 564 461 cnv 15 300 400 empty empty empty 20 12 0 14 -233017
+-66577 0;
+#X obj 778 471 receive fx_B;
+#X obj 779 835 send outfx_B;
+#X obj 172 1008 receive outfx_A;
+#X obj 282 1008 receive outfx_B;
+#X obj 166 566 hsl 128 15 0 20000 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 600 1;
+#X obj 166 585 hsl 128 15 0 40 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 800 1;
+#X floatatom 95 564 10 0 0 0 - - -;
+#X floatatom 95 583 10 0 0 0 - - -;
+#N canvas 660 330 549 411 fx_rythm 0;
+#X obj 37 167 pix_lumaoffset;
+#X floatatom 96 131 5 0 0 0 - - -;
+#X floatatom 166 114 5 0 0 0 - - -;
+#N canvas 836 441 375 276 freq_xover 0;
+#X obj 190 62 inlet~;
+#X obj 248 61 inlet;
+#X obj 294 60 inlet;
+#X floatatom 290 102 10 0 0 0 - - -;
+#X floatatom 290 125 10 0 0 0 - - -;
+#X obj 219 151 unsig~ 50;
+#X obj 219 217 outlet;
+#X text 21 40 by deadman;
+#X text 16 72 inlet1~ Audio signal;
+#X text 18 130 outlet1 signal (0 to 1);
+#X text 16 22 freq xover signaler (band-q);
+#X text 17 88 inlet2 freq (def: 90);
+#X text 17 105 inlet3 q (def: 10);
+#X obj 219 114 bp~ 90 10;
+#X obj 275 216 outlet;
+#X obj 274 186 abs;
+#X connect 0 0 13 0;
+#X connect 1 0 3 0;
+#X connect 1 0 13 1;
+#X connect 2 0 4 0;
+#X connect 2 0 13 2;
+#X connect 5 0 15 0;
+#X connect 5 0 6 0;
+#X connect 13 0 5 0;
+#X connect 15 0 14 0;
+#X restore 49 62 pd freq_xover signaler (band-q);
+#X obj 85 93 * 1000;
+#X obj 34 -22 inlet;
+#X obj 103 -20 inlet~;
+#X obj 72 255 outlet;
+#X obj 174 -16 inlet;
+#X obj 232 -19 inlet;
+#X obj 294 -15 inlet;
+#X obj 349 -12 inlet;
+#X connect 0 0 7 0;
+#X connect 2 0 0 2;
+#X connect 3 1 4 0;
+#X connect 4 0 1 0;
+#X connect 4 0 0 1;
+#X connect 5 0 0 0;
+#X connect 6 0 3 0;
+#X connect 8 0 3 1;
+#X connect 9 0 3 2;
+#X connect 10 0 2 0;
+#X connect 11 0 4 1;
+#X restore 97 657 pd fx_rythm luma;
+#X obj 166 604 hsl 128 15 0 30 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 95 604 5 0 0 0 - - -;
+#X obj 166 624 hsl 128 15 0 3000 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 1600 1;
+#X floatatom 98 628 5 0 0 0 - - -;
+#X obj 148 717 hsl 128 15 0 20 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#N canvas 393 70 450 300 polka 0;
+#N canvas 788 162 450 300 pix_dot 0;
+#X obj 232 113 pix_dot;
+#X floatatom 267 69 5 0 20 0 - - -;
+#X obj 195 49 inlet;
+#X obj 222 161 outlet;
+#X obj 262 43 inlet;
+#X text 15 10 pix_dot helper;
+#X text 22 27 by deadman;
+#X text 14 71 inlet2 value;
+#X text 14 58 inlet1 gemlist;
+#X text 15 94 outlet gemlist;
+#X connect 0 0 3 0;
+#X connect 1 0 0 1;
+#X connect 2 0 0 0;
+#X connect 4 0 1 0;
+#X restore 159 101 pd pix_dot helper;
+#X obj 132 165 pix_multiply;
+#X obj 114 45 inlet;
+#X obj 135 230 outlet;
+#X obj 233 42 inlet;
+#X connect 0 0 1 1;
+#X connect 1 0 3 0;
+#X connect 2 0 1 0;
+#X connect 2 0 0 0;
+#X connect 4 0 0 1;
+#X restore 124 737 pd polka image;
+#N canvas 836 441 375 276 freq_xover 0;
+#X obj 190 62 inlet~;
+#X obj 248 61 inlet;
+#X obj 294 60 inlet;
+#X floatatom 290 102 10 0 0 0 - - -;
+#X floatatom 290 125 10 0 0 0 - - -;
+#X obj 219 151 unsig~ 50;
+#X obj 219 185 abs;
+#X obj 219 217 outlet;
+#X text 21 40 by deadman;
+#X text 16 72 inlet1~ Audio signal;
+#X text 18 130 outlet1 signal (0 to 1);
+#X text 16 22 freq xover signaler (band-q);
+#X text 17 88 inlet2 freq (def: 90);
+#X text 17 105 inlet3 q (def: 10);
+#X obj 219 114 bp~ 90 10;
+#X connect 0 0 14 0;
+#X connect 1 0 3 0;
+#X connect 1 0 14 1;
+#X connect 2 0 4 0;
+#X connect 2 0 14 2;
+#X connect 5 0 6 0;
+#X connect 6 0 7 0;
+#X connect 14 0 5 0;
+#X restore 347 668 pd freq_xover signaler (band-q);
+#X obj 416 631 hsl 128 15 0 20000 0 0 empty empty empty -2 -8 0 10
+-262144 -1 -1 0 1;
+#X obj 416 650 hsl 128 15 0 40 0 0 empty empty empty -2 -8 0 10 -262144
+-1 -1 0 1;
+#X floatatom 367 694 5 0 0 0 - - -;
+#X obj 315 549 cnv 15 100 60 empty empty empty 20 12 0 14 -233017 -66577
+0;
+#X obj 332 574 adc~;
+#N canvas 0 0 450 300 Stereo2Mono 0;
+#X obj 108 49 inlet~;
+#X obj 254 46 inlet~;
+#X obj 208 123 *~ 0.5;
+#X obj 198 195 outlet~;
+#X text 16 25 by deadman;
+#X text 11 10 stereo to mono converter;
+#X connect 0 0 2 0;
+#X connect 1 0 2 0;
+#X connect 2 0 3 0;
+#X restore 331 596 pd Stereo2Mono;
+#N canvas 0 0 450 300 sbridge 0;
+#X obj 160 49 inlet~;
+#X obj 163 109 outlet~;
+#X connect 0 0 1 0;
+#X restore 122 473 pd sbridge;
+#N canvas 0 0 450 300 sbridge 0;
+#X obj 160 49 inlet~;
+#X obj 163 109 outlet~;
+#X connect 0 0 1 0;
+#X restore 689 471 pd sbridge;
+#X obj 430 465 receive absig;
+#X obj 463 754 send absig;
+#X floatatom 345 629 10 0 0 0 - - -;
+#X floatatom 347 648 10 0 0 0 - - -;
+#X obj 16 803 pix_multiply;
+#X obj 646 654 pix_halftone;
+#X floatatom 679 610 5 2 32 0 - - -;
+#X floatatom 725 610 5 0 0 0 - - -;
+#X floatatom 745 640 5 0 1 0 - - -;
+#N canvas 1982 161 450 300 autorotator 0;
+#X obj 101 62 i;
+#X obj 126 62 + 1;
+#X obj 151 62 % 360;
+#X floatatom 124 95 5 0 0 0 - - -;
+#X obj 224 -43 inlet;
+#X obj 97 135 outlet;
+#X obj 169 -14 metro 150;
+#X msg 147 -39 loadbang;
+#X connect 0 0 1 0;
+#X connect 0 0 3 0;
+#X connect 0 0 5 0;
+#X connect 1 0 2 0;
+#X connect 2 0 0 1;
+#X connect 4 0 6 1;
+#X connect 6 0 0 0;
+#X connect 7 0 6 0;
+#X restore 741 563 pd autorotator;
+#X obj 721 536 hsl 128 15 -2000 2000 0 0 empty empty empty -2 -8 0
+10 -262144 -1 -1 0 1;
+#X msg 726 510 0;
+#X obj 762 513 bng 15 250 50 0 empty empty empty 17 7 0 10 -262144
+-1 -1;
+#X floatatom 697 564 5 0 0 0 - - -;
+#X obj 777 799 pix_multiply;
+#X obj 433 721 spigot;
+#X obj 480 724 tgl 15 0 empty empty empty 17 7 0 10 -262144 -1 -1 0
+1;
+#X obj 34 238 gemwin;
+#X msg 85 201 view 0 0 3 0 0 0 0 1 0;
+#X obj 227 515 notein;
+#X obj 594 547 ctlin;
+#X floatatom 590 581 5 0 0 0 - - -;
+#X floatatom 594 621 5 0 0 0 - - -;
+#X floatatom 608 600 5 0 0 0 - - -;
+#X connect 1 0 0 0;
+#X connect 2 0 0 2;
+#X connect 3 0 24 3;
+#X connect 4 0 24 3;
+#X connect 5 0 24 3;
+#X connect 6 0 24 3;
+#X connect 7 0 19 3;
+#X connect 8 0 19 3;
+#X connect 9 0 19 3;
+#X connect 10 0 19 3;
+#X connect 17 0 19 1;
+#X connect 18 0 19 2;
+#X connect 19 0 34 0;
+#X connect 20 0 19 0;
+#X connect 21 0 24 0;
+#X connect 22 0 24 1;
+#X connect 23 0 24 2;
+#X connect 24 0 72 0;
+#X connect 25 0 35 1;
+#X connect 26 0 35 2;
+#X connect 27 0 35 3;
+#X connect 28 0 35 5;
+#X connect 29 0 35 6;
+#X connect 30 0 35 7;
+#X connect 31 0 35 4;
+#X connect 32 0 35 8;
+#X connect 35 0 79 0;
+#X connect 38 0 41 0;
+#X connect 39 0 38 0;
+#X connect 40 0 41 3;
+#X connect 41 0 37 0;
+#X connect 44 0 46 0;
+#X connect 45 0 46 3;
+#X connect 46 0 43 0;
+#X connect 47 0 44 0;
+#X connect 49 0 50 0;
+#X connect 50 0 87 0;
+#X connect 50 1 88 0;
+#X connect 51 0 52 0;
+#X connect 51 0 53 0;
+#X connect 52 0 28 0;
+#X connect 52 0 29 0;
+#X connect 52 0 30 0;
+#X connect 52 0 32 0;
+#X connect 53 0 25 0;
+#X connect 53 0 26 0;
+#X connect 53 0 27 0;
+#X connect 53 0 31 0;
+#X connect 55 0 64 1;
+#X connect 56 0 64 2;
+#X connect 57 0 64 3;
+#X connect 58 0 64 5;
+#X connect 59 0 64 6;
+#X connect 60 0 64 7;
+#X connect 61 0 64 4;
+#X connect 62 0 64 8;
+#X connect 64 0 80 0;
+#X connect 65 0 66 0;
+#X connect 65 0 67 0;
+#X connect 66 0 58 0;
+#X connect 66 0 59 0;
+#X connect 66 0 60 0;
+#X connect 66 0 62 0;
+#X connect 67 0 55 0;
+#X connect 67 0 56 0;
+#X connect 67 0 57 0;
+#X connect 67 0 61 0;
+#X connect 68 0 69 0;
+#X connect 69 0 49 0;
+#X connect 70 0 35 0;
+#X connect 71 0 64 0;
+#X connect 73 0 75 0;
+#X connect 74 0 76 0;
+#X connect 77 0 50 1;
+#X connect 78 0 50 2;
+#X connect 81 0 91 0;
+#X connect 82 0 92 0;
+#X connect 89 0 85 0;
+#X connect 90 0 86 0;
+#X connect 93 0 105 0;
+#X connect 97 0 98 0;
+#X connect 99 0 83 0;
+#X connect 100 0 84 0;
+#X connect 101 0 103 0;
+#X connect 101 0 105 2;
+#X connect 102 0 104 0;
+#X connect 102 0 105 3;
+#X connect 105 0 111 0;
+#X connect 106 0 105 4;
+#X connect 106 0 107 0;
+#X connect 108 0 105 5;
+#X connect 108 0 109 0;
+#X connect 110 0 111 1;
+#X connect 111 0 95 0;
+#X connect 112 0 115 0;
+#X connect 112 0 136 0;
+#X connect 113 0 112 1;
+#X connect 113 0 123 0;
+#X connect 114 0 112 2;
+#X connect 114 0 124 0;
+#X connect 117 0 118 0;
+#X connect 117 1 118 1;
+#X connect 118 0 120 0;
+#X connect 118 0 119 0;
+#X connect 118 0 112 0;
+#X connect 119 0 105 1;
+#X connect 121 0 49 0;
+#X connect 127 0 126 1;
+#X connect 128 0 126 2;
+#X connect 129 0 126 3;
+#X connect 130 0 128 0;
+#X connect 131 0 130 0;
+#X connect 131 0 134 0;
+#X connect 132 0 131 0;
+#X connect 133 0 132 0;
+#X connect 136 0 122 0;
+#X connect 137 0 136 1;
+#X connect 139 0 0 4;
+#X connect 141 0 142 0;
+#X connect 141 1 144 0;
+#X connect 141 2 143 0;
